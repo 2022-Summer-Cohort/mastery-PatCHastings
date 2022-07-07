@@ -1,27 +1,59 @@
 package com.survivingcodingbootcamp.blog.model;
 
 import javax.persistence.*;
+import javax.xml.stream.events.Comment;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 
 @Entity
 public class Post {
+
     @Id
     @GeneratedValue
     private Long id;
     private String title;
+    private String author;
     @ManyToOne
     private Topic topic;
     @Lob
     private String content;
+    @ManyToMany
+    private Collection<Hashtag> hashtags;
+    @OneToMany(mappedBy = "post")
+    private Collection<Comment> comments;
 
     protected Post() {
     }
 
-    public Post(String title, Topic topic, String content) {
+    public Post(String title, String author, Topic topic, String content, Hashtag[] hashtags) {
         this.title = title;
+        this.author = author;
+        this.topic = topic;
+        this.content = content;
+        this.hashtags = Arrays.asList(hashtags);
+    }
+
+    public Post(String title, String author, Topic topic, String content) {
+        this.title = title;
+        this.author = author;
         this.topic = topic;
         this.content = content;
     }
 
+    public Post(String tdd_for_fun_and_profit, Topic topic1, String s) {
+
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+    public Collection<Hashtag> getHashtags() {
+        return hashtags;
+    }
+    public Collection<Comment> getComments() {
+        return comments;
+    }
     public Long getId() {
         return id;
     }
@@ -68,5 +100,8 @@ public class Post {
         result = 31 * result + (topic != null ? topic.hashCode() : 0);
         result = 31 * result + (content != null ? content.hashCode() : 0);
         return result;
+    }
+
+    public void addHashtag(Hashtag post2Hashtag) {
     }
 }
