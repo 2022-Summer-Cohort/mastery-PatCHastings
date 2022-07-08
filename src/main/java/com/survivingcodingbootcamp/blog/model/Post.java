@@ -20,8 +20,8 @@ public class Post {
     private String content;
     @ManyToMany
     private Collection<Hashtag> hashtags;
-    @OneToMany(mappedBy = "post")
-    private Collection<Comment> comments;
+//    @OneToMany(mappedBy = "post")
+//    private Collection<Comment> comments;
 
     protected Post() {
     }
@@ -51,9 +51,9 @@ public class Post {
     public Collection<Hashtag> getHashtags() {
         return hashtags;
     }
-    public Collection<Comment> getComments() {
-        return comments;
-    }
+//    public Collection<Comment> getComments() {
+//        return comments;
+//    }
     public Long getId() {
         return id;
     }

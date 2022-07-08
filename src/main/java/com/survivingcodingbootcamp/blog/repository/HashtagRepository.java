@@ -7,6 +7,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;
 
-public interface HashtagRepository extends CrudRepository<Post, Long>{
-    Optional<Hashtag> findByHashtagName(String hashtagToAdd);
+public interface HashtagRepository extends CrudRepository<Hashtag, Long>{
+    Optional<Hashtag> findByHashtagToAdd(String hashtagToAdd);
 }

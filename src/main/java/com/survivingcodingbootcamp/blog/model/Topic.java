@@ -1,9 +1,6 @@
 package com.survivingcodingbootcamp.blog.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
@@ -12,7 +9,7 @@ public class Topic {
     @GeneratedValue
     private Long id;
     private String name;
-    @OneToMany(mappedBy = "topics")
+    @OneToMany(mappedBy = "topic")
     private Collection<Post> posts;
 
     protected Topic() {

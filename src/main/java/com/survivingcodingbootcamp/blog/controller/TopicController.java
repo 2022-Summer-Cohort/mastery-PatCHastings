@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
 
 @Controller
-@RequestMapping("/topic")
+@RequestMapping("/topics")
 public class TopicController {
 
     private TopicRepository topicRepo;
@@ -37,7 +37,7 @@ public class TopicController {
         this.topicRepo = topicRepo;
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{id}") //rickie help
     public String displaySingleTopic(@PathVariable long id, Model model) {
         model.addAttribute("topic", topicRepo.findById(id).get());
         return "single-topic-template";
