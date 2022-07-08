@@ -2,22 +2,29 @@ package com.survivingcodingbootcamp.blog;
 
 import com.survivingcodingbootcamp.blog.model.Post;
 import com.survivingcodingbootcamp.blog.model.Topic;
+import com.survivingcodingbootcamp.blog.repository.HashtagRepository;
 import com.survivingcodingbootcamp.blog.repository.PostRepository;
 import com.survivingcodingbootcamp.blog.repository.TopicRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Populator implements CommandLineRunner {
+    @Autowired
+    TopicRepository topicRepo;
+    @Autowired
+    PostRepository postRepo;
+    @Autowired
+    HashtagRepository hashtagRepo;
 
-    private TopicRepository topicRepo;
-    private PostRepository postRepo;
 
 
-    public Populator(TopicRepository topicRepo, PostRepository postRepo) {
+    public Populator(TopicRepository topicRepo, PostRepository postRepo, HashtagRepository hashtagRepo) {
 
         this.topicRepo = topicRepo;
         this.postRepo = postRepo;
+        this.hashtagRepo = hashtagRepo;
     }
 
     @Override

@@ -31,7 +31,6 @@ public class TopicControllerTest {
         testTopic = new Topic("Test Topic");
         Optional<Topic> testOptional = Optional.of(testTopic);
         when(topicRepo.findById(1l)).thenReturn(testOptional);
-
     }
 
     @Test

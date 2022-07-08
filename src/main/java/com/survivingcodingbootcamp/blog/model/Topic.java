@@ -12,7 +12,7 @@ public class Topic {
     @GeneratedValue
     private Long id;
     private String name;
-    @OneToMany(mappedBy = "topic")
+    @OneToMany(mappedBy = "topics")
     private Collection<Post> posts;
 
     protected Topic() {
@@ -21,6 +21,7 @@ public class Topic {
     public Topic(String name) {
         this.name = name;
     }
+
 
     public Long getId() {
         return id;
