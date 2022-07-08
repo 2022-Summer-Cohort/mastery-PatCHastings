@@ -10,16 +10,21 @@ public class Hashtag {
     @Id
     @GeneratedValue
     private long id;
-    private String hashtagToAdd;
+    private String hashtagName;
     @ManyToMany(mappedBy = "hashtags")
     private Collection<Post> posts;
 
-    public Hashtag(String hashtagToAdd) {
-    this.hashtagToAdd = hashtagToAdd;
+    public Hashtag(String hashtagName) {
+    this.hashtagName = hashtagName;
+
     }
 
     public Hashtag() {
     }
+
+//    public Hashtag(Hashtag hashtag) { Created when fixing error in postController
+//
+//    }
 
     public Collection<Post> getPosts() {
         return posts;
@@ -27,7 +32,7 @@ public class Hashtag {
     public long getId() {
         return id;
     }
-    public String getHashtagToAdd() {
-        return hashtagToAdd;
+    public String getHashtagName() {
+        return hashtagName;
     }
 }

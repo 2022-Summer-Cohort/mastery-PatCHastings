@@ -20,29 +20,16 @@ public class Post {
     private String content;
     @ManyToMany
     private Collection<Hashtag> hashtags;
-//    @OneToMany(mappedBy = "post")
-//    private Collection<Comment> comments;
 
-    protected Post() {
+    public Post() {
     }
 
-    public Post(String title, String author, Topic topic, String content, Hashtag[] hashtags) {
+    public Post(String title, String author, Topic topic, String content, Hashtag... hashtags) {
         this.title = title;
         this.author = author;
         this.topic = topic;
         this.content = content;
         this.hashtags = Arrays.asList(hashtags);
-    }
-
-    public Post(String title, String author, Topic topic, String content) {
-        this.title = title;
-        this.author = author;
-        this.topic = topic;
-        this.content = content;
-    }
-
-    public Post(String tdd_for_fun_and_profit, Topic topic1, String s) {
-
     }
 
     public String getAuthor() {
@@ -102,6 +89,8 @@ public class Post {
         return result;
     }
 
-    public void addHashtag(Hashtag post2Hashtag) {
+    public void addHashtag(Hashtag hashtag) {
+    hashtags.add(hashtag);
     }
+
 }

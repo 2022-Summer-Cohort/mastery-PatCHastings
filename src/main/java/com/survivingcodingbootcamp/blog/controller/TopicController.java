@@ -23,8 +23,6 @@ public class TopicController {
     private PostRepository postRepo;
     private HashtagRepository hashtagRepo;
 
-    public TopicController() {
-    }
 
     public TopicController(TopicRepository topicRepo, PostRepository postRepo, HashtagRepository hashtagRepo) {
 
@@ -33,12 +31,10 @@ public class TopicController {
         this.hashtagRepo = hashtagRepo;
     }
 
-    public TopicController(TopicRepository topicRepo) {
-        this.topicRepo = topicRepo;
-    }
+
 
     @GetMapping("/{id}") //rickie help
-    public String displaySingleTopic(@PathVariable long id, Model model) {
+    public String displaySingleTopic(@PathVariable Long id, Model model) {
         model.addAttribute("topic", topicRepo.findById(id).get());
         return "single-topic-template";
     }
