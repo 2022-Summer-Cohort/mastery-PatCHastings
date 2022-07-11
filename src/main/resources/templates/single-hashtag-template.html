@@ -15,9 +15,12 @@
     <h1>Hashtags</h1>
   </div>
   <div class="hashtags-flex">
-    <div class="hashtags" th:each="hashtag: ${hashtags}">
-      <a class="hashtag-name" th:href="'/hashtags/' + ${id}" th:text="${hashtagName}"></a>
-    </div>
+
+    <li class="hashtags" th:each="post: ${hashtag.posts}">
+      <div>
+      <a th:href="'/posts/' + ${post.id}" th:text="${post.title}"></a>
+      </div>
+    </li>
   </div>
 </header>
 </body>

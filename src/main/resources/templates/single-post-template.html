@@ -28,7 +28,7 @@
                     Eligendi necessitatibus blanditiis officia, odio deleniti natus molestiae fugiat ex quod vel aliquam illum.
                 </p>
             </section>
-            <div class="hashtags-flex">
+            <div class="hashtags-flex"></div>
                 <div class="hashtags" th:each="thing: ${post.hashtags}">
                     <a class="hashtag-name" th:href="'/hashtags/' + ${thing.id}" th:text="${thing.hashtagName}"></a>
                 </div>

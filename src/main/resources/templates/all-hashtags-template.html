@@ -1,24 +1,35 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Hashtags For All</title>
+    <title th:text="${hashtags}">hasshhs</title>
     <link rel="icon" href="/assets/icon.png">
     <link rel="stylesheet" href="/css/style.css"/>
     <link rel="stylesheet" href="/css/layout.css"/>
 </head>
 <body>
+    <div class="container">
 <header>
+    <nav class="header__nav">
+        <div class="header__nav-item"><a href="/" class="header__nav-link">Home</a></div>
+        <div class="header__nav-item"><a href="/hashtags" class="header__nav-link">Hashtags</a></div>
+    </nav>
+</header>
+    <main class="main-content">
     <div class="title-flex">
         <h1>Hashtags</h1>
     </div>
     <div class="hashtags-flex">
-        <div class="hashtags" th:each="hashtag: ${hashtags}">
-            <a class="hashtag-name" th:href="'/hashtags/' + ${id}" th:text="${hashtagName}"></a>
-        </div>
+        <ul>
+           <li th:each="thing: ${hashtags}">
+            <a class="hashtag-name" th:href="'/hashtags/' + ${thing.id}" th:text="${thing.hashtagName}"></a>
+        </ul>
     </div>
-</header>
+    </main>
+    </div>
+
 </body>
 </html>

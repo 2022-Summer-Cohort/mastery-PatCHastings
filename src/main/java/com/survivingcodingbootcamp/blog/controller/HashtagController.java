@@ -20,11 +20,11 @@ public class HashtagController {
     @RequestMapping("/")
     public String showAllHashtags(Model model) {
        model.addAttribute("hashtags", hashtagRepo.findAll());
-       return "hashtags";
+       return "all-hashtags-template";
     }
     @RequestMapping("{id}")
     private String showHashtag(Model model, @PathVariable long id) {
         model.addAttribute("hashtag", hashtagRepo.findById(id).get());
-        return "hashtag";
+        return "single-hashtag-template";
     }
 }
