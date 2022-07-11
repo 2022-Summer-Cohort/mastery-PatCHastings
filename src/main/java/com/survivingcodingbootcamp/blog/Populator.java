@@ -62,8 +62,8 @@ public class Populator implements CommandLineRunner {
         Topic topic4 = new Topic("Object Oriented Programming and You");
         topicRepo.save(topic4);
 
-//        Hashtag hashtag1 = new Hashtag("cool");
-//        hashtagRepo.save(hashtag1);
+        Hashtag hashtag1 = new Hashtag("cool");
+        hashtagRepo.save(hashtag1);
 
     }
 

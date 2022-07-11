@@ -4,12 +4,21 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title th:text="${hashtag.hashtagName}">Hashtag Name</title>
+  <title>Hashtags For All</title>
   <link rel="icon" href="/assets/icon.png">
   <link rel="stylesheet" href="/css/style.css"/>
   <link rel="stylesheet" href="/css/layout.css"/>
 </head>
 <body>
-
+<header>
+  <div class="title-flex">
+    <h1>Hashtags</h1>
+  </div>
+  <div class="hashtags-flex">
+    <div class="hashtags" th:each="hashtag: ${hashtags}">
+      <a class="hashtag-name" th:href="'/hashtags/' + ${id}" th:text="${hashtagName}"></a>
+    </div>
+  </div>
+</header>
 </body>
 </html>

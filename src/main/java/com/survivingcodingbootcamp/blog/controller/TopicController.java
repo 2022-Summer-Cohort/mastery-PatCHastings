@@ -34,13 +34,13 @@ public class TopicController {
 
 
     @GetMapping("/{id}") //rickie help
-    public String displaySingleTopic(@PathVariable Long id, Model model) {
+    public String displaySingleTopic(@PathVariable long id, Model model) {
         model.addAttribute("topic", topicRepo.findById(id).get());
         return "single-topic-template";
     }
 
     @PostMapping("/{id}/addPost")
-    public String addReview(@PathVariable Long id, @RequestParam String title, @RequestParam String author, @RequestParam Topic topic, @RequestParam String content) {
+    public String addReview(@PathVariable long id, @RequestParam String title, @RequestParam String author, @RequestParam Topic topic, @RequestParam String content) {
         Topic topic1 = topicRepo.findById(id).get();
         Post post1 = new Post(title, author, topic, content);
         postRepo.save(post1);

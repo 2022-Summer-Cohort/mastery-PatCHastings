@@ -18,7 +18,7 @@ public class PostController {
     private HashtagRepository hashtagRepo;
     private TopicRepository topicRepo;
 
-    public PostController(PostRepository postRepo) {
+    public PostController(PostRepository postRepo, HashtagRepository hashtagRepo, TopicRepository topicRepo) {
         this.postRepo = postRepo;
         this.hashtagRepo = hashtagRepo;
         this.topicRepo = topicRepo;
@@ -31,22 +31,20 @@ public class PostController {
     }
 
     @PostMapping("/{id}/addHashtag")
-public String addHashtag(@PathVariable Long id, @RequestParam String hashtag) {
+public String addHashtag(@PathVariable long id, @RequestParam String hashtag) {
         Post post = postRepo.findById(id).get();
-        Optional<Hashtag> post1Hashtags = hashtagRepo.findByHashtagName(hashtag);
-        if (post1Hashtags.isPresent()) {
-            if (!post.getHashtags().contains(post1Hashtags.get())) {
-                post.addHashtag(post1Hashtags.get());
+        Optional<Hashtag> hashtagOptional = hashtagRepo.findByHashtagName(hashtag);
+        if (hashtagOptional.isPresent()) {
+            if (!post.getHashtags().contains(hashtagOptional.get())) {
+                post.addHashtag(hashtagOptional.get());
             }
-        }
-        else {
+        } else {
             Hashtag hashtag1 = new Hashtag(hashtag);
             hashtagRepo.save(hashtag1);
             post.addHashtag(hashtag1);
-
         }
         postRepo.save(post);
 
-        return "redirect:/posts/" +id;
+        return "redirect:/posts/" + id;
     }
 }

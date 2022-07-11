@@ -21,7 +21,7 @@ public class Post {
     @ManyToMany
     private Collection<Hashtag> hashtags;
 
-    public Post() {
+    protected Post() {
     }
 
     public Post(String title, String author, Topic topic, String content, Hashtag... hashtags) {

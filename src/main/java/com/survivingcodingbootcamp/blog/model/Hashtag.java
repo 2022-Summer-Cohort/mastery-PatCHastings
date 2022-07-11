@@ -2,6 +2,7 @@ package com.survivingcodingbootcamp.blog.model;
 
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collection;
 
 @Entity
@@ -16,15 +17,12 @@ public class Hashtag {
 
     public Hashtag(String hashtagName) {
     this.hashtagName = hashtagName;
+    this.posts = new ArrayList<Post>();
 
     }
 
-    public Hashtag() {
+    protected Hashtag() {
     }
-
-//    public Hashtag(Hashtag hashtag) { Created when fixing error in postController
-//
-//    }
 
     public Collection<Post> getPosts() {
         return posts;

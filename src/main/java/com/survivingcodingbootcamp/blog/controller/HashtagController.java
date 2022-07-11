@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/hashtags")
 public class HashtagController {
 
     private HashtagRepository hashtagRepo;
@@ -16,15 +17,14 @@ public class HashtagController {
         this.hashtagRepo = hashtagRepo;
     }
 
-    @RequestMapping("/hashtags/")
+    @RequestMapping("/")
     public String showAllHashtags(Model model) {
        model.addAttribute("hashtags", hashtagRepo.findAll());
        return "hashtags";
     }
-    @RequestMapping("/hashtags/{id}")
+    @RequestMapping("{id}")
     private String showHashtag(Model model, @PathVariable long id) {
         model.addAttribute("hashtag", hashtagRepo.findById(id).get());
         return "hashtag";
     }
-
 }
