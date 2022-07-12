@@ -24,8 +24,8 @@
     </div>
     <div class="hashtags-flex">
         <ul>
-           <li th:each="thing: ${hashtags}">
-            <a class="hashtag-name" th:href="'/hashtags/' + ${thing.id}" th:text="${thing.hashtagName}"></a>
+           <li th:each="hashtag: ${hashtags}">
+            <a class="hashtag-name" th:href="'/hashtags/' + ${hashtag.id}" th:text="${hashtag.hashtagName}"></a>
         </ul>
     </div>
     </main>

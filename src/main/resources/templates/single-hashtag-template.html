@@ -10,9 +10,16 @@
   <link rel="stylesheet" href="/css/layout.css"/>
 </head>
 <body>
-<header>
+<header class="header">
+  <h1 class="header__title">Surviving Coding Boot Camp</h1>
+  <nav class="header__nav">
+    <div class="header__nav-item"><a href="/" class="header__nav-link">Home</a></div>
+    <div class="header__nav-item"><a href="/hashtags" class="header__nav-link">Hashtags</a></div>
+  </nav>
+</header>
   <div class="title-flex">
-    <h1>Hashtags</h1>
+    <h1>Hashtags Associated With This Title</h1>
+      <h2 th:text="'#' + ${hashtag.hashtagName}"></h2>
   </div>
   <div class="hashtags-flex">
 
@@ -22,6 +29,6 @@
       </div>
     </li>
   </div>
-</header>
+
 </body>
 </html>
