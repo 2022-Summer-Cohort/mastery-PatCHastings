@@ -40,9 +40,9 @@ public class TopicController {
     }
 
     @PostMapping("/{id}/addPost")
-    public String addReview(@PathVariable long id, @RequestParam String title, @RequestParam String author, @RequestParam Topic topic, @RequestParam String content) {
+    public String addReview(@PathVariable long id, @RequestParam String title, String author, String content) {
         Topic topic1 = topicRepo.findById(id).get();
-        Post post1 = new Post(title, author, topic, content);
+        Post post1 = new Post(title, author, topic1, content);
         postRepo.save(post1);
         topic1.addPost(post1);
         topicRepo.save(topic1);
